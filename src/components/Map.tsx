@@ -38,7 +38,7 @@ const Map = ({ location }: MapProps) => {
               .addTo(map);
           }
 
-          // Create and store Metrobús marker
+          // Create and store Metrobús marker with corrected coordinates
           if (!metrobusMarkerRef.current) {
             // Create a custom marker element
             const el = document.createElement('div');
@@ -50,7 +50,7 @@ const Map = ({ location }: MapProps) => {
             el.style.cursor = 'pointer';
 
             metrobusMarkerRef.current = new mapboxgl.Marker(el)
-              .setLngLat([-99.1293907, 19.3980026])
+              .setLngLat([-99.127806, 19.398556]) // Adjusted coordinates to be on the opposite corner
               .setPopup(new mapboxgl.Popup().setHTML('<h3>Estación Metrobús Andrés Molina</h3>'))
               .addTo(map);
           }
