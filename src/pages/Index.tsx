@@ -12,6 +12,7 @@ import {
 
 const Index = () => {
   const [selectedImage, setSelectedImage] = useState(0);
+  const [showMap, setShowMap] = useState(false);
   
   const images = [
     'https://images.unsplash.com/photo-1487958449943-2429e8be8625',
@@ -32,14 +33,25 @@ const Index = () => {
               <h2 className="text-lg font-semibold mb-4">Properties</h2>
               <div className="space-y-4">
                 {images.map((image, index) => (
-                  <div key={index} className="relative rounded-2xl overflow-hidden group cursor-pointer">
-                    <img 
-                      src={image} 
-                      alt={`Property ${index + 1}`}
-                      className="w-full h-32 object-cover transition-transform duration-300 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300" />
-                  </div>
+                  <Dialog key={index}>
+                    <DialogTrigger asChild>
+                      <div className="relative rounded-2xl overflow-hidden group cursor-pointer">
+                        <img 
+                          src={image} 
+                          alt={`Property ${index + 1}`}
+                          className="w-full h-32 object-cover transition-transform duration-300 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300" />
+                      </div>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-4xl p-0">
+                      <img 
+                        src={image} 
+                        alt={`Property ${index + 1}`}
+                        className="w-full h-full object-contain rounded-lg"
+                      />
+                    </DialogContent>
+                  </Dialog>
                 ))}
               </div>
             </div>
@@ -48,11 +60,24 @@ const Index = () => {
           {/* Main Content */}
           <div className="lg:col-span-6">
             <div className="bg-white rounded-3xl p-6 shadow-sm">
-              <img 
-                src={images[0]} 
-                alt="Main Property"
-                className="w-full h-[400px] object-cover rounded-2xl mb-6"
-              />
+              <Dialog>
+                <DialogTrigger asChild>
+                  <div className="cursor-pointer">
+                    <img 
+                      src={images[0]} 
+                      alt="Main Property"
+                      className="w-full h-[400px] object-cover rounded-2xl mb-6"
+                    />
+                  </div>
+                </DialogTrigger>
+                <DialogContent className="max-w-4xl p-0">
+                  <img 
+                    src={images[0]} 
+                    alt="Main Property"
+                    className="w-full h-full object-contain rounded-lg"
+                  />
+                </DialogContent>
+              </Dialog>
               <div className="flex items-center justify-between">
                 <div>
                   <h1 className="text-2xl font-bold mb-2">Local Comercial</h1>
@@ -102,10 +127,19 @@ const Index = () => {
                 </div>
 
                 <div className="flex gap-4">
-                  <Button variant="outline" className="flex-1 rounded-xl">
-                    <MapPin className="w-4 h-4" />
-                    Map
-                  </Button>
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button variant="outline" className="flex-1 rounded-xl">
+                        <MapPin className="w-4 h-4" />
+                        Map
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-4xl p-6">
+                      <div className="h-[500px] w-full">
+                        <Map location={location} />
+                      </div>
+                    </DialogContent>
+                  </Dialog>
                   <Button className="flex-1 rounded-xl bg-black hover:bg-black/90">
                     Book Now
                   </Button>
@@ -113,10 +147,6 @@ const Index = () => {
               </div>
             </div>
           </div>
-        </div>
-
-        <div className="mt-8">
-          <Map location={location} />
         </div>
       </main>
     </div>
