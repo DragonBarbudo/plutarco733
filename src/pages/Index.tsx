@@ -78,22 +78,12 @@ const Index = () => {
                   />
                 </DialogContent>
               </Dialog>
-              <div className="flex items-center justify-between">
-                <div>
-                  <h1 className="text-2xl font-bold mb-2">Local Comercial en Renta</h1>
-                  <p className="text-gray-500">Nueva Santa Anita, Iztacalco</p>
-                </div>
-                <div className="flex items-center gap-2">
-                  <img 
-                    src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" 
-                    alt="Propietario"
-                    className="w-10 h-10 rounded-full"
-                  />
-                  <div className="text-sm">
-                    <p className="font-medium">Asesor Inmobiliario</p>
-                    <p className="text-gray-500">Disponible</p>
-                  </div>
-                </div>
+              <div>
+                <h1 className="text-2xl font-bold mb-4">¡Local en Renta con Ubicación Estratégica y Amplias Funcionalidades!</h1>
+                <p className="text-gray-600 mb-4">
+                  ¡No pierdas la oportunidad de establecer tu negocio en un punto estratégico con alto flujo de personas! Ideal para oficinas, comercio o servicios.
+                </p>
+                <div className="text-gray-500">Nueva Santa Anita, Iztacalco</div>
               </div>
             </div>
           </div>
