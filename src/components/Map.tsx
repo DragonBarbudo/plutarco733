@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import { MAPBOX_TOKEN } from '../config/mapbox';
 
 interface MapProps {
   location: [number, number];
@@ -14,11 +15,7 @@ const Map = ({ location }: MapProps) => {
   useEffect(() => {
     if (!mapContainer.current) return;
 
-    const defaultToken = 'pk.eyJ1IjoibG92YWJsZSIsImEiOiJjbHNqOWh2NW0wMXBrMmpxdDk2cGN6ZHB1In0.qY4WrHzr0RfBhbQWnzE_DA';
-    const userToken = window.prompt('Please enter your Mapbox token (or press Cancel to use a temporary token)');
-    const mapboxToken = userToken || defaultToken;
-    
-    mapboxgl.accessToken = mapboxToken;
+    mapboxgl.accessToken = MAPBOX_TOKEN;
     
     const initializeMap = () => {
       try {
