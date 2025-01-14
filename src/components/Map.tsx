@@ -11,6 +11,7 @@ const Map = ({ location }: MapProps) => {
   const mapContainer = useRef<HTMLDivElement>(null);
   const mapInstance = useRef<mapboxgl.Map | null>(null);
   const markerRef = useRef<mapboxgl.Marker | null>(null);
+  const metrobusMarkerRef = useRef<mapboxgl.Marker | null>(null);
 
   useEffect(() => {
     if (!mapContainer.current) return;
@@ -30,10 +31,27 @@ const Map = ({ location }: MapProps) => {
           // Store map instance in ref
           mapInstance.current = map;
 
-          // Create and store marker
+          // Create and store property marker
           if (!markerRef.current) {
             markerRef.current = new mapboxgl.Marker()
               .setLngLat(location)
+              .addTo(map);
+          }
+
+          // Create and store Metrobús marker
+          if (!metrobusMarkerRef.current) {
+            // Create a custom marker element
+            const el = document.createElement('div');
+            el.className = 'custom-marker';
+            el.style.backgroundImage = 'url(/metrobus-icon.png)';
+            el.style.width = '32px';
+            el.style.height = '32px';
+            el.style.backgroundSize = 'cover';
+            el.style.cursor = 'pointer';
+
+            metrobusMarkerRef.current = new mapboxgl.Marker(el)
+              .setLngLat([-99.1293907, 19.3980026])
+              .setPopup(new mapboxgl.Popup().setHTML('<h3>Estación Metrobús Andrés Molina</h3>'))
               .addTo(map);
           }
         }
@@ -49,6 +67,10 @@ const Map = ({ location }: MapProps) => {
       if (markerRef.current) {
         markerRef.current.remove();
         markerRef.current = null;
+      }
+      if (metrobusMarkerRef.current) {
+        metrobusMarkerRef.current.remove();
+        metrobusMarkerRef.current = null;
       }
       if (mapInstance.current) {
         mapInstance.current.remove();
