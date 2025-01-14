@@ -23,39 +23,50 @@ const Index = () => {
   const location: [number, number] = [-99.122778, 19.408889];
 
   return (
-    <div className="min-h-screen bg-white">
-      <main className="container mx-auto px-4 py-8 space-y-12">
-        <section className="mb-12 animate-fade-in [animation-delay:200ms]">
-          <h1 className="text-4xl font-bold mb-4">Local Comercial en Renta</h1>
-          <p className="text-gray-600 text-xl">Plutarco Elías Calles 733, Nueva Santa Anita</p>
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+      <main className="container mx-auto px-4 py-12 space-y-16">
+        <section className="text-center mb-16 animate-fade-in [animation-delay:200ms]">
+          <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">
+            Local Comercial en Renta
+          </h1>
+          <p className="text-gray-600 text-xl font-light">
+            Plutarco Elías Calles 733, Nueva Santa Anita
+          </p>
         </section>
 
         <section className="animate-fade-in [animation-delay:400ms]">
           <Gallery images={images} />
         </section>
 
-        <section className="grid md:grid-cols-2 gap-8 my-12 animate-fade-in [animation-delay:600ms]">
+        <section className="grid md:grid-cols-2 gap-12 my-16 animate-fade-in [animation-delay:600ms]">
           <PropertyDetails />
-          <div className="h-[400px] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <div className="h-[500px] rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-1">
             <Map location={location} />
           </div>
         </section>
 
-        <section className="bg-white rounded-lg shadow-lg p-8 mb-12 animate-fade-in [animation-delay:800ms]">
-          <h2 className="text-2xl font-bold mb-6">Información de Contacto</h2>
-          <div className="flex items-center gap-2 mb-4">
-            <Phone className="text-blue-500" />
+        <section className="bg-white rounded-2xl shadow-lg p-12 mb-16 animate-fade-in [animation-delay:800ms] hover:shadow-xl transition-all duration-300">
+          <h2 className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">
+            Información de Contacto
+          </h2>
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <Phone className="text-blue-500 w-6 h-6" />
             <Dialog>
               <DialogTrigger asChild>
-                <Button variant="outline" 
-                  className="bg-gradient-to-r from-blue-500 to-blue-600 text-white hover:from-blue-600 hover:to-blue-700 hover:scale-105 transition-all duration-300">
+                <Button 
+                  className="bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-600 hover:to-purple-600 transform hover:scale-105 transition-all duration-300 text-lg px-8 py-6 rounded-xl shadow-lg hover:shadow-xl"
+                >
                   Ver Teléfono
                 </Button>
               </DialogTrigger>
-              <DialogContent>
-                <div className="p-6 text-center animate-scale-in">
-                  <h3 className="text-2xl font-bold mb-4">Contacto</h3>
-                  <p className="text-xl">+52 (55) 1234-5678</p>
+              <DialogContent className="p-8">
+                <div className="text-center animate-scale-in">
+                  <h3 className="text-2xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">
+                    Contacto
+                  </h3>
+                  <p className="text-2xl font-semibold text-gray-700">
+                    +52 (55) 1234-5678
+                  </p>
                 </div>
               </DialogContent>
             </Dialog>

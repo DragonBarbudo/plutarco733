@@ -13,18 +13,18 @@ const Gallery = ({ images }: GalleryProps) => {
   const [selectedImage, setSelectedImage] = useState(0);
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 animate-fade-in">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 animate-fade-in">
       {images.map((image, index) => (
         <Dialog key={index}>
           <DialogTrigger asChild>
             <div 
-              className="aspect-square rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out"
+              className="aspect-square rounded-2xl overflow-hidden cursor-pointer shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
               onClick={() => setSelectedImage(index)}
             >
               <img
                 src={image}
                 alt={`Propiedad ${index + 1}`}
-                className="w-full h-full object-cover hover:opacity-90 transition-opacity"
+                className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
               />
             </div>
           </DialogTrigger>
@@ -32,7 +32,7 @@ const Gallery = ({ images }: GalleryProps) => {
             <img
               src={image}
               alt={`Propiedad ${index + 1}`}
-              className="w-full h-full object-contain animate-scale-in"
+              className="w-full h-full object-contain rounded-lg animate-scale-in"
             />
           </DialogContent>
         </Dialog>
