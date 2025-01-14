@@ -20,6 +20,9 @@ const Index = () => {
     'https://images.unsplash.com/photo-1439337153520-7082a56a81f4'
   ];
 
+  // Correct coordinates for Plutarco Elías Calles 733, Nueva Santa Anita
+  const location: [number, number] = [-99.122778, 19.408889];
+
   return (
     <div className="min-h-screen bg-white">
       <main className="container mx-auto px-4 py-8">
@@ -33,7 +36,7 @@ const Index = () => {
         <section className="grid md:grid-cols-2 gap-8 my-12">
           <PropertyDetails />
           <div className="h-[400px] rounded-lg overflow-hidden">
-            <Map location={[19.408889, -99.122778]} />
+            <Map location={location} />
           </div>
         </section>
 
