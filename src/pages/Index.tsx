@@ -23,55 +23,101 @@ const Index = () => {
   const location: [number, number] = [-99.122778, 19.408889];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
-      <main className="container mx-auto px-4 py-12 space-y-16">
-        <section className="text-center mb-16 animate-fade-in [animation-delay:200ms]">
-          <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">
-            Local Comercial en Renta
-          </h1>
-          <p className="text-gray-600 text-xl font-light">
-            Plutarco Elías Calles 733, Nueva Santa Anita
-          </p>
-        </section>
-
-        <section className="animate-fade-in [animation-delay:400ms]">
-          <Gallery images={images} />
-        </section>
-
-        <section className="grid md:grid-cols-2 gap-12 my-16 animate-fade-in [animation-delay:600ms]">
-          <PropertyDetails />
-          <div className="h-[500px] rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-1">
-            <Map location={location} />
+    <div className="min-h-screen bg-[#F8FAFC]">
+      <main className="container mx-auto px-6 py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          {/* Left Sidebar */}
+          <div className="lg:col-span-3 space-y-6">
+            <div className="bg-white rounded-3xl p-6 shadow-sm">
+              <h2 className="text-lg font-semibold mb-4">Properties</h2>
+              <div className="space-y-4">
+                {images.map((image, index) => (
+                  <div key={index} className="relative rounded-2xl overflow-hidden group cursor-pointer">
+                    <img 
+                      src={image} 
+                      alt={`Property ${index + 1}`}
+                      className="w-full h-32 object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300" />
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-        </section>
 
-        <section className="bg-white rounded-2xl shadow-lg p-12 mb-16 animate-fade-in [animation-delay:800ms] hover:shadow-xl transition-all duration-300">
-          <h2 className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">
-            Información de Contacto
-          </h2>
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <Phone className="text-blue-500 w-6 h-6" />
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button 
-                  className="bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-600 hover:to-purple-600 transform hover:scale-105 transition-all duration-300 text-lg px-8 py-6 rounded-xl shadow-lg hover:shadow-xl"
-                >
-                  Ver Teléfono
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="p-8">
-                <div className="text-center animate-scale-in">
-                  <h3 className="text-2xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">
-                    Contacto
-                  </h3>
-                  <p className="text-2xl font-semibold text-gray-700">
-                    +52 (55) 1234-5678
-                  </p>
+          {/* Main Content */}
+          <div className="lg:col-span-6">
+            <div className="bg-white rounded-3xl p-6 shadow-sm">
+              <img 
+                src={images[0]} 
+                alt="Main Property"
+                className="w-full h-[400px] object-cover rounded-2xl mb-6"
+              />
+              <div className="flex items-center justify-between">
+                <div>
+                  <h1 className="text-2xl font-bold mb-2">Local Comercial</h1>
+                  <p className="text-gray-500">Nueva Santa Anita</p>
                 </div>
-              </DialogContent>
-            </Dialog>
+                <div className="flex items-center gap-2">
+                  <img 
+                    src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" 
+                    alt="Owner"
+                    className="w-10 h-10 rounded-full"
+                  />
+                  <div className="text-sm">
+                    <p className="font-medium">Chris Williams</p>
+                    <p className="text-gray-500">Owner</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </section>
+
+          {/* Right Sidebar */}
+          <div className="lg:col-span-3">
+            <div className="bg-white rounded-3xl p-6 shadow-sm">
+              <div className="flex items-center gap-2 mb-6">
+                <span className="bg-orange-500/10 text-orange-500 px-3 py-1 rounded-full text-sm font-medium">For Sale</span>
+              </div>
+              
+              <div className="space-y-6">
+                <div>
+                  <h2 className="text-2xl font-bold mb-2">$400/m²</h2>
+                  <div className="flex gap-2 text-sm text-gray-500">
+                    <span>200m²</span>
+                    <span>•</span>
+                    <span>Commercial</span>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-600">Rent</span>
+                    <span className="font-medium">$80,000/Monthly</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-600">Mortgage</span>
+                    <span className="font-medium">$2.1M</span>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <Button variant="outline" className="flex-1 rounded-xl">
+                    <MapPin className="w-4 h-4" />
+                    Map
+                  </Button>
+                  <Button className="flex-1 rounded-xl bg-black hover:bg-black/90">
+                    Book Now
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-8">
+          <Map location={location} />
+        </div>
       </main>
     </div>
   );
