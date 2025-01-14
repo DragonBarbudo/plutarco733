@@ -9,6 +9,7 @@ interface MapProps {
 const Map = ({ location }: MapProps) => {
   const mapContainer = useRef<HTMLDivElement>(null);
   const mapInstance = useRef<mapboxgl.Map | null>(null);
+  const markerRef = useRef<mapboxgl.Marker | null>(null);
 
   useEffect(() => {
     if (!mapContainer.current) return;
@@ -19,26 +20,39 @@ const Map = ({ location }: MapProps) => {
     
     mapboxgl.accessToken = mapboxToken;
     
-    try {
-      if (!mapInstance.current) {
-        const map = new mapboxgl.Map({
-          container: mapContainer.current,
-          style: 'mapbox://styles/mapbox/light-v11',
-          center: location,
-          zoom: 15
-        });
+    const initializeMap = () => {
+      try {
+        if (!mapInstance.current && mapContainer.current) {
+          const map = new mapboxgl.Map({
+            container: mapContainer.current,
+            style: 'mapbox://styles/mapbox/light-v11',
+            center: location,
+            zoom: 15
+          });
 
-        const marker = new mapboxgl.Marker()
-          .setLngLat(location)
-          .addTo(map);
+          // Store map instance in ref
+          mapInstance.current = map;
 
-        mapInstance.current = map;
+          // Create and store marker
+          if (!markerRef.current) {
+            markerRef.current = new mapboxgl.Marker()
+              .setLngLat(location)
+              .addTo(map);
+          }
+        }
+      } catch (error) {
+        console.error('Error initializing map:', error);
       }
-    } catch (error) {
-      console.error('Error initializing map:', error);
-    }
+    };
 
+    initializeMap();
+
+    // Cleanup function
     return () => {
+      if (markerRef.current) {
+        markerRef.current.remove();
+        markerRef.current = null;
+      }
       if (mapInstance.current) {
         mapInstance.current.remove();
         mapInstance.current = null;
