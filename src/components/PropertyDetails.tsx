@@ -3,7 +3,7 @@ import { Building2, MapPin, DoorOpen, Car, Coffee } from 'lucide-react';
 const PropertyDetails = () => {
   return (
     <div className="bg-white rounded-3xl shadow-sm p-8">
-      <h2 className="text-2xl font-bold mb-8">Property Details</h2>
+      <h2 className="text-2xl font-bold mb-8">Detalles de la Propiedad</h2>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-6">
@@ -12,9 +12,11 @@ const PropertyDetails = () => {
               <MapPin className="text-blue-500 w-5 h-5" />
             </div>
             <div>
-              <h3 className="font-medium text-gray-900 mb-2">Location</h3>
+              <h3 className="font-medium text-gray-900 mb-2">Ubicación Premium</h3>
               <p className="text-gray-500 text-sm">
-                Corner of two main roads (4 Sur & 1 Ote)
+                Esquina de dos importantes ejes viales (4 Sur y 1 Oriente)<br />
+                Frente a la estación de Metrobús Andrés Molina<br />
+                Frente al mercado Santa Anita
               </p>
             </div>
           </div>
@@ -24,9 +26,9 @@ const PropertyDetails = () => {
               <Building2 className="text-purple-500 w-5 h-5" />
             </div>
             <div>
-              <h3 className="font-medium text-gray-900 mb-2">Space</h3>
+              <h3 className="font-medium text-gray-900 mb-2">Espacio</h3>
               <p className="text-gray-500 text-sm">
-                Ground floor and mezzanine (200 m²)
+                200 m² distribuidos en planta baja y mezzanine
               </p>
             </div>
           </div>
@@ -38,9 +40,9 @@ const PropertyDetails = () => {
               <Car className="text-orange-500 w-5 h-5" />
             </div>
             <div>
-              <h3 className="font-medium text-gray-900 mb-2">Parking</h3>
+              <h3 className="font-medium text-gray-900 mb-2">Estacionamiento</h3>
               <p className="text-gray-500 text-sm">
-                Available
+                Disponible
               </p>
             </div>
           </div>
@@ -50,9 +52,9 @@ const PropertyDetails = () => {
               <Coffee className="text-green-500 w-5 h-5" />
             </div>
             <div>
-              <h3 className="font-medium text-gray-900 mb-2">Amenities</h3>
+              <h3 className="font-medium text-gray-900 mb-2">Amenidades</h3>
               <p className="text-gray-500 text-sm">
-                2 bathrooms, office, storage, kitchenette
+                2 baños, oficina, bodega, cocineta
               </p>
             </div>
           </div>

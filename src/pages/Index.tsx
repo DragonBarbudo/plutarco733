@@ -30,7 +30,7 @@ const Index = () => {
           {/* Left Sidebar */}
           <div className="lg:col-span-3 space-y-6">
             <div className="bg-white rounded-3xl p-6 shadow-sm">
-              <h2 className="text-lg font-semibold mb-4">Properties</h2>
+              <h2 className="text-lg font-semibold mb-4">Galería</h2>
               <div className="space-y-4">
                 {images.map((image, index) => (
                   <Dialog key={index}>
@@ -38,16 +38,16 @@ const Index = () => {
                       <div className="relative rounded-2xl overflow-hidden group cursor-pointer">
                         <img 
                           src={image} 
-                          alt={`Property ${index + 1}`}
+                          alt={`Propiedad ${index + 1}`}
                           className="w-full h-32 object-cover transition-transform duration-300 group-hover:scale-110"
                         />
                         <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300" />
                       </div>
                     </DialogTrigger>
-                    <DialogContent className="max-w-4xl p-0">
+                    <DialogContent className="max-w-4xl max-h-[90vh] overflow-auto p-0">
                       <img 
                         src={image} 
-                        alt={`Property ${index + 1}`}
+                        alt={`Propiedad ${index + 1}`}
                         className="w-full h-full object-contain rounded-lg"
                       />
                     </DialogContent>
@@ -65,33 +65,33 @@ const Index = () => {
                   <div className="cursor-pointer">
                     <img 
                       src={images[0]} 
-                      alt="Main Property"
+                      alt="Propiedad Principal"
                       className="w-full h-[400px] object-cover rounded-2xl mb-6"
                     />
                   </div>
                 </DialogTrigger>
-                <DialogContent className="max-w-4xl p-0">
+                <DialogContent className="max-w-4xl max-h-[90vh] overflow-auto p-0">
                   <img 
                     src={images[0]} 
-                    alt="Main Property"
+                    alt="Propiedad Principal"
                     className="w-full h-full object-contain rounded-lg"
                   />
                 </DialogContent>
               </Dialog>
               <div className="flex items-center justify-between">
                 <div>
-                  <h1 className="text-2xl font-bold mb-2">Local Comercial</h1>
-                  <p className="text-gray-500">Nueva Santa Anita</p>
+                  <h1 className="text-2xl font-bold mb-2">Local Comercial en Renta</h1>
+                  <p className="text-gray-500">Nueva Santa Anita, Iztacalco</p>
                 </div>
                 <div className="flex items-center gap-2">
                   <img 
                     src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" 
-                    alt="Owner"
+                    alt="Propietario"
                     className="w-10 h-10 rounded-full"
                   />
                   <div className="text-sm">
-                    <p className="font-medium">Chris Williams</p>
-                    <p className="text-gray-500">Owner</p>
+                    <p className="font-medium">Asesor Inmobiliario</p>
+                    <p className="text-gray-500">Disponible</p>
                   </div>
                 </div>
               </div>
@@ -102,7 +102,7 @@ const Index = () => {
           <div className="lg:col-span-3">
             <div className="bg-white rounded-3xl p-6 shadow-sm">
               <div className="flex items-center gap-2 mb-6">
-                <span className="bg-orange-500/10 text-orange-500 px-3 py-1 rounded-full text-sm font-medium">For Sale</span>
+                <span className="bg-orange-500/10 text-orange-500 px-3 py-1 rounded-full text-sm font-medium">En Renta</span>
               </div>
               
               <div className="space-y-6">
@@ -111,18 +111,18 @@ const Index = () => {
                   <div className="flex gap-2 text-sm text-gray-500">
                     <span>200m²</span>
                     <span>•</span>
-                    <span>Commercial</span>
+                    <span>Comercial</span>
                   </div>
                 </div>
 
                 <div className="space-y-4">
                   <div className="flex justify-between items-center">
-                    <span className="text-gray-600">Rent</span>
-                    <span className="font-medium">$80,000/Monthly</span>
+                    <span className="text-gray-600">Renta Mensual</span>
+                    <span className="font-medium">$80,000 MXN</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-gray-600">Mortgage</span>
-                    <span className="font-medium">$2.1M</span>
+                    <span className="text-gray-600">Dirección</span>
+                    <span className="font-medium text-sm">Plutarco Elías Calles 733</span>
                   </div>
                 </div>
 
@@ -130,18 +130,18 @@ const Index = () => {
                   <Dialog>
                     <DialogTrigger asChild>
                       <Button variant="outline" className="flex-1 rounded-xl">
-                        <MapPin className="w-4 h-4" />
-                        Map
+                        <MapPin className="w-4 h-4 mr-2" />
+                        Mapa
                       </Button>
                     </DialogTrigger>
-                    <DialogContent className="max-w-4xl p-6">
+                    <DialogContent className="max-w-4xl max-h-[90vh] overflow-auto p-6">
                       <div className="h-[500px] w-full">
                         <Map location={location} />
                       </div>
                     </DialogContent>
                   </Dialog>
                   <Button className="flex-1 rounded-xl bg-black hover:bg-black/90">
-                    Book Now
+                    Agendar Visita
                   </Button>
                 </div>
               </div>
