@@ -9,6 +9,11 @@ import {
   DialogContent,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 
 const Index = () => {
   const [selectedImage, setSelectedImage] = useState(0);
@@ -62,12 +67,29 @@ const Index = () => {
             <div className="bg-white rounded-3xl p-6 shadow-sm">
               <Dialog>
                 <DialogTrigger asChild>
-                  <div className="cursor-pointer">
-                    <img 
-                      src={images[0]} 
-                      alt="Propiedad Principal"
-                      className="w-full h-[400px] object-cover rounded-2xl mb-6"
-                    />
+                  <div className="cursor-pointer relative overflow-hidden rounded-2xl">
+                    <Carousel
+                      opts={{
+                        align: "start",
+                        loop: true,
+                        duration: 20,
+                        dragFree: true,
+                      }}
+                      className="w-full"
+                      autoplay={true}
+                    >
+                      <CarouselContent>
+                        {images.slice(0, 2).map((image, index) => (
+                          <CarouselItem key={index} className="basis-full">
+                            <img 
+                              src={image} 
+                              alt={`Propiedad ${index + 1}`}
+                              className="w-full h-[400px] object-cover"
+                            />
+                          </CarouselItem>
+                        ))}
+                      </CarouselContent>
+                    </Carousel>
                   </div>
                 </DialogTrigger>
                 <DialogContent className="max-w-4xl max-h-[90vh] overflow-auto">
@@ -78,6 +100,7 @@ const Index = () => {
                   />
                 </DialogContent>
               </Dialog>
+              
               <div>
                 <h1 className="text-2xl font-bold mb-4">¡Local en Renta con Ubicación Estratégica y Amplias Funcionalidades!</h1>
                 
