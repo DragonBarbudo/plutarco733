@@ -17,6 +17,7 @@ type CarouselProps = {
   plugins?: CarouselPlugin
   orientation?: "horizontal" | "vertical"
   setApi?: (api: CarouselApi) => void
+  autoplay?: boolean
 }
 
 type CarouselContextProps = {
@@ -52,6 +53,7 @@ const Carousel = React.forwardRef<
       plugins,
       className,
       children,
+      autoplay,
       ...props
     },
     ref
@@ -117,6 +119,21 @@ const Carousel = React.forwardRef<
         api?.off("select", onSelect)
       }
     }, [api, onSelect])
+
+    // Add autoplay functionality
+    React.useEffect(() => {
+      if (!api || !autoplay) return
+
+      const intervalId = setInterval(() => {
+        if (api.canScrollNext()) {
+          api.scrollNext()
+        } else {
+          api.scrollTo(0)
+        }
+      }, 3000) // Change slide every 3 seconds
+
+      return () => clearInterval(intervalId)
+    }, [api, autoplay])
 
     return (
       <CarouselContext.Provider
