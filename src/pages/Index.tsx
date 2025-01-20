@@ -35,9 +35,9 @@ const Index = () => {
             className="w-full relative"
             autoplay={true}
           >
-            <CarouselContent className="!-ml-0">
+            <CarouselContent>
               {images.map((image, index) => (
-                <CarouselItem key={index} className="!pl-0 absolute w-full">
+                <CarouselItem key={index} className="relative w-full">
                   <div className="relative h-[400px] w-full overflow-hidden rounded-2xl">
                     <img 
                       src={image} 
