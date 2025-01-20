@@ -27,16 +27,18 @@ const Index = () => {
         <div className="mb-8">
           <Carousel
             opts={{
-              align: "start",
+              align: "center",
               loop: true,
-              duration: 2000,
+              skipSnaps: false,
+              dragFree: false,
+              duration: 500,
             }}
-            className="w-full"
+            className="w-full relative"
             autoplay={true}
           >
-            <CarouselContent>
+            <CarouselContent className="!-ml-0">
               {images.map((image, index) => (
-                <CarouselItem key={index} className="basis-full">
+                <CarouselItem key={index} className="!pl-0 absolute w-full">
                   <div className="relative h-[400px] w-full overflow-hidden rounded-2xl">
                     <img 
                       src={image} 
