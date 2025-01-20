@@ -1,7 +1,7 @@
-import type { EmblaOptionsType } from 'embla-carousel-react'
-import type { UseEmblaCarouselType } from 'embla-carousel-react'
+import type { EmblaCarouselType as CarouselType } from 'embla-carousel'
+import useEmblaCarousel from 'embla-carousel-react'
 
-export type CarouselApi = UseEmblaCarouselType[1]
+export type CarouselApi = ReturnType<typeof useEmblaCarousel>[1]
 export type UseCarouselParameters = Parameters<typeof useEmblaCarousel>
 export type CarouselOptions = {
   align?: "start" | "center" | "end"
