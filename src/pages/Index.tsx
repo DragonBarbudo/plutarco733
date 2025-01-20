@@ -41,7 +41,7 @@ const Index = () => {
                     <img 
                       src={image} 
                       alt={`Property ${index + 1}`}
-                      className="w-full h-full object-cover transition-opacity duration-1000"
+                      className="w-full h-full object-cover animate-carousel-fade"
                     />
                   </div>
                 </CarouselItem>
