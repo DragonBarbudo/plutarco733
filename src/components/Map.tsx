@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import { MAPBOX_TOKEN } from '../config/mapbox';
 
 interface MapProps {
   location: [number, number];
@@ -13,6 +14,9 @@ const Map: React.FC<MapProps> = ({ location }) => {
 
   useEffect(() => {
     if (!mapContainer.current) return;
+
+    // Set access token before initializing map
+    mapboxgl.accessToken = MAPBOX_TOKEN;
 
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
