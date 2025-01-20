@@ -29,7 +29,6 @@ const Index = () => {
             opts={{
               align: "center",
               loop: true,
-              skipSnaps: false,
               dragFree: false,
               duration: 500,
             }}
