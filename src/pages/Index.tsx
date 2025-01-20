@@ -1,14 +1,9 @@
-import { useState } from 'react';
 import { MapPin, Home, DoorOpen, Car, Coffee, Phone } from 'lucide-react';
 import Map from '../components/Map';
 import Gallery from '../components/Gallery';
 import PropertyDetails from '../components/PropertyDetails';
 import { Button } from "@/components/ui/button";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
+import Banner from '../components/Banner';
 
 const Index = () => {
   const images = [
@@ -23,32 +18,9 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
       <main className="container mx-auto px-6 py-8">
-        {/* Banner Carousel */}
+        {/* Banner */}
         <div className="mb-8">
-          <Carousel
-            opts={{
-              align: "center",
-              loop: true,
-              dragFree: false,
-              duration: 500,
-            }}
-            className="w-full relative"
-            autoplay={true}
-          >
-            <CarouselContent>
-              {images.map((image, index) => (
-                <CarouselItem key={index} className="relative w-full">
-                  <div className="relative h-[400px] w-full overflow-hidden rounded-2xl">
-                    <img 
-                      src={image} 
-                      alt={`Property ${index + 1}`}
-                      className="w-full h-full object-cover animate-carousel-fade"
-                    />
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Carousel>
+          <Banner images={images} />
         </div>
 
         {/* Two Column Layout */}
@@ -88,9 +60,9 @@ const Index = () => {
                   <p>Plutarco Elías Calles 733, Nueva Santa Anita, Iztacalco, CDMX, C.P. 08210</p>
                 </div>
               </div>
-
-              <PropertyDetails />
             </div>
+
+            <PropertyDetails />
           </div>
 
           {/* Right Column - Gallery and Pricing */}
