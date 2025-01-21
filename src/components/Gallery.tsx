@@ -3,6 +3,8 @@ import {
   Dialog,
   DialogContent,
   DialogTrigger,
+  DialogTitle,
+  DialogDescription
 } from "@/components/ui/dialog";
 
 interface GalleryProps {
@@ -16,6 +18,7 @@ const Gallery = ({ images }: GalleryProps) => {
     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
       {images.map((image, index) => (
         <Dialog key={index}>
+          <DialogTitle className="hidden">Abrir imagen</DialogTitle>
           <DialogTrigger asChild>
             <div 
               className="relative aspect-square rounded-2xl overflow-hidden cursor-pointer group"
@@ -35,6 +38,7 @@ const Gallery = ({ images }: GalleryProps) => {
               alt={`Property ${index + 1}`}
               className="w-full h-full object-contain rounded-lg"
             />
+            <DialogDescription className="hidden"></DialogDescription>
           </DialogContent>
         </Dialog>
       ))}

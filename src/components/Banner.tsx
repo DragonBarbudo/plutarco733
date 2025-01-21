@@ -16,7 +16,7 @@ const Banner = ({ images }: BannerProps) => {
   }, [images.length]);
 
   return (
-    <div className="relative h-[400px] w-full rounded-2xl overflow-hidden">
+    <div className="relative aspect-[4/3] max-w-4xl mx-auto w-full rounded-2xl overflow-hidden">
       {images.map((image, index) => (
         <div
           key={index}
