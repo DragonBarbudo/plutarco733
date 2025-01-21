@@ -42,6 +42,7 @@ const Index = () => {
             </div>
             <div className="bg-white rounded-3xl p-6 shadow-sm">
               <h1 className="text-2xl font-bold mb-4">¡Local en Renta con Ubicación Estratégica y Amplias Funcionalidades!</h1>
+              <h2>Con 2 vistas sobre importante av. Plutarco Elias Calles y contra esquina de Metrobús</h2>
               
            
             </div>
