@@ -37,7 +37,7 @@ const Index = () => {
     "@context": "https://schema.org",
     "@type": "RealEstateListing",
     "name": "Local Comercial en Renta - Plutarco Elías Calles",
-    "description": "Local Comercial en Renta con Ubicación Estratégica y Amplias Funcionalidades. Con 2 vistas sobre importante av. Plutarco Elias Calles y contra esquina de Metrobús",
+    "description": "Local Comercial en Renta con Ubicación Estratégica y Amplias Funcionalidades. 2 vistas. Sobre Plutarco Elias Calles y contra esquina de Metrobús Andrés Molina",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Plutarco Elías Calles 733",
