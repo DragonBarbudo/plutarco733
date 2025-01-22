@@ -35,15 +35,19 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
       <main className="container mx-auto px-6 py-8">
-        {/* Banner */}
-        <div className="mb-8">
-          <Banner images={images} />
-        </div>
+        
 
         {/* Two Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Left Column - Main Content */}
           <div className="lg:col-span-7 space-y-6">
+
+
+            {/* Banner */}
+            <div className="mb-8">
+              <Banner images={images} />
+            </div>
+
             <div className="bg-white rounded-3xl p-6 shadow-sm">
               <h1 className="text-2xl font-bold mb-4">¡Local Comercial en Renta con Ubicación Estratégica y Amplias Funcionalidades!</h1>
               <h2>Con 2 vistas sobre importante av. Plutarco Elias Calles y contra esquina de Metrobús</h2>
