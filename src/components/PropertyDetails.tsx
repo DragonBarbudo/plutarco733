@@ -28,7 +28,7 @@ const PropertyDetails = () => {
             <div>
               <h3 className="font-medium text-gray-900 mb-2">Espacio</h3>
               <p className="text-gray-500 text-sm">
-                200 m² distribuidos en planta baja y mezzanine
+                120 m² distribuidos en planta baja y mezzanine
               </p>
             </div>
           </div>

@@ -27,7 +27,7 @@ const Gallery = ({ images }: GalleryProps) => {
               <img
                 src={image}
                 alt={`Property ${index + 1}`}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                className=" w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300" />
             </div>
@@ -36,7 +36,7 @@ const Gallery = ({ images }: GalleryProps) => {
             <img
               src={image}
               alt={`Property ${index + 1}`}
-              className="w-full h-full object-contain rounded-lg"
+              className="max-h-[calc(100vh-5rem)] w-full h-full object-contain rounded-lg"
             />
             <DialogDescription className="hidden"></DialogDescription>
           </DialogContent>

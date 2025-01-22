@@ -78,7 +78,7 @@ const Index = () => {
                 <div>
                   <h2 className="text-2xl font-bold mb-2">$400/m²</h2>
                   <div className="flex gap-2 text-sm text-gray-500">
-                    <span>200m²</span>
+                    <span>120m²</span>
                     <span>•</span>
                     <span>Comercial</span>
                   </div>
@@ -87,7 +87,7 @@ const Index = () => {
                 <div className="space-y-4">
                   <div className="flex justify-between items-center">
                     <span className="text-gray-600">Renta Mensual</span>
-                    <span className="font-medium">$80,000 MXN</span>
+                    <span className="font-medium">$48,000 MXN</span>
                   </div>
                 </div>
 
