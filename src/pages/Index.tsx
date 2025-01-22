@@ -37,7 +37,7 @@ const Index = () => {
     "@context": "https://schema.org",
     "@type": "RealEstateListing",
     "name": "Local Comercial en Renta - Plutarco Elías Calles",
-    "description": "Local Comercial en Renta con Ubicación Estratégica y Amplias Funcionalidades. 2 vistas. Sobre Plutarco Elias Calles y contra esquina de Metrobús Andrés Molina",
+    "description": "Local Comercial en Renta con Ubicación Estratégica y Amplias Funcionalidades. Esquina en av. Plutarco Elias Calles y contra-esquina de Metrobús Andrés Molina",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Plutarco Elías Calles 733",
@@ -78,7 +78,7 @@ const Index = () => {
 
             <div className="bg-white rounded-3xl p-6 shadow-sm">
               <h1 className="text-2xl font-bold mb-4">¡Local Comercial en Renta con Ubicación Estratégica y Amplias Funcionalidades!</h1>
-              <h2>Con 2 vistas sobre importante av. Plutarco Elias Calles y contra esquina de Metrobús</h2>
+              <h2>Esquina en avenida Plutarco Elias Calles y contra-esquina de Metrobús Andrés Molina.</h2>
               
               <div className="mt-6">
                 <div className="flex items-start gap-3">
