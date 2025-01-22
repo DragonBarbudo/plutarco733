@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://plutarco733.lovable.dev/sitemap.xml

@@ -4,6 +4,7 @@ import Gallery from '../components/Gallery';
 import PropertyDetails from '../components/PropertyDetails';
 import { Button } from "@/components/ui/button";
 import Banner from '../components/Banner';
+import { Helmet } from 'react-helmet';
 
 const Index = () => {
   const images = [
@@ -32,17 +33,44 @@ const Index = () => {
     window.open(`https://wa.me/${phoneNumber}`, '_blank');
   };
 
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "RealEstateListing",
+    "name": "Local Comercial en Renta - Plutarco Elías Calles",
+    "description": "Local Comercial en Renta con Ubicación Estratégica y Amplias Funcionalidades. Con 2 vistas sobre importante av. Plutarco Elias Calles y contra esquina de Metrobús",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Plutarco Elías Calles 733",
+      "addressLocality": "Nueva Santa Anita, Iztacalco",
+      "addressRegion": "CDMX",
+      "postalCode": "08210",
+      "addressCountry": "MX"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "19.398056",
+      "longitude": "-99.128806"
+    },
+    "price": "48000",
+    "priceCurrency": "MXN",
+    "telephone": phoneNumber,
+    "image": images
+  };
+
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify(schemaData)}
+        </script>
+        <title>Local Comercial en Renta - Plutarco Elías Calles 733</title>
+        <meta name="description" content="Local Comercial en Renta con Ubicación Estratégica y Amplias Funcionalidades en Plutarco Elías Calles" />
+      </Helmet>
       <main className="container mx-auto px-6 py-8">
-        
-
         {/* Two Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Left Column - Main Content */}
           <div className="lg:col-span-7 space-y-6">
-
-
             {/* Banner */}
             <div className="mb-8">
               <Banner images={images} />
